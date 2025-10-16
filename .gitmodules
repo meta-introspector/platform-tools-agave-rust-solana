@@ -7,3 +7,9 @@
 [submodule "vendor/newlib-src"]
 	path = vendor/newlib-src
 	url = https://github.com/anza-xyz/newlib
+[submodule "vendor/rust-overlay"]
+	path = vendor/rust-overlay
+	url = https://github.com/meta-introspector/rust-overlay
+[submodule "vendor/nixpkgs-mozilla"]
+	path = vendor/nixpkgs-mozilla
+	url = https://github.com/meta-introspector/nixpkgs-mozilla
