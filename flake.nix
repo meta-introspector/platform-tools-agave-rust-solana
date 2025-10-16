@@ -4,13 +4,12 @@
   inputs = {
     nixpkgs.url = "github:meta-introspector/nixpkgs?ref=feature/CRQ-016-nixify";
     flake-utils.url = "github:meta-introspector/flake-utils?ref=feature/CRQ-016-nixify";
-
-    cargo-build-bpf.url = "github:meta-introspector/solana-flake?ref=feature/CRQ-016-nixify&dir=cargo-build-bpf";
-    solana-bpf-tools.url = "github:meta-introspector/solana-flake?ref=feature/CRQ-016-nixify&dir=solana-bpf-tools";
-    solana-cli.url = "github:meta-introspector/solana-flake?ref=feature/CRQ-016-nixify&dir=solana-cli";
+    rust-src.url = "./vendor/rust-src";
+    cargo-src.url = "./vendor/cargo-src";
+    newlib-src.url = "./vendor/newlib-src";
   };
 
-  outputs = { self, nixpkgs, flake-utils, cargo-build-bpf, solana-bpf-tools, solana-cli }:
+  outputs = { self, nixpkgs, flake-utils, rust-src, cargo-src, newlib-src }:
     flake-utils.lib.eachSystem [ "x86_64-linux" "aarch64-linux" ] (system:
       let
         pkgs = import nixpkgs { inherit system; };
@@ -19,9 +18,7 @@
         packages.default = pkgs.buildEnv {
           name = "solana-platform-tools";
           paths = [
-            cargo-build-bpf.packages.${system}.default
-            solana-bpf-tools.packages.${system}.default
-            solana-cli.packages.${system}.default
+            # These will be defined as derivations later
           ];
         };
 

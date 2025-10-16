@@ -1,0 +1,9 @@
+[submodule "vendor/rust-src"]
+	path = vendor/rust-src
+	url = https://github.com/anza-xyz/rust
+[submodule "vendor/cargo-src"]
+	path = vendor/cargo-src
+	url = https://github.com/anza-xyz/cargo
+[submodule "vendor/newlib-src"]
+	path = vendor/newlib-src
+	url = https://github.com/anza-xyz/newlib
