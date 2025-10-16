@@ -1,4 +1,4 @@
 deploy/
 out/
-
+logs/
 .DS_Store
